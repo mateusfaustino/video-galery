@@ -1,7 +1,7 @@
 
 .container.playing{
     grid-template-columns: 2fr 1fr;
-    align-items: flex-start;
+    align-items: center;
     padding: 5px 5%;
 }
 
@@ -42,7 +42,8 @@
     background: #fff;
     border-radius: 5px;
     height: 520px;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: scroll;
     
 }
 
