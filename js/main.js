@@ -5,6 +5,7 @@ const videoGalery = document.getElementById("video-galery")
 const videoPlayer = document.getElementById("main-video-player")
 const mainVideoTitle = document.getElementById("main-video__title")
 const backButton = document.getElementById("backButton")
+const logo = document.getElementById("logo")
 function createElement(elementType,elementClass, parent, imageParams){
     const element = document.createElement(elementType); 
     element.classList.add(elementClass);
@@ -49,11 +50,13 @@ function playVideo(video){
     backButton.classList.add("active")
     videoPlayer.src=`core/videos/${video.slug}.mp4`
     mainVideoTitle.innerHTML=video.title
+    logo.classList.add("active-animation")
     // videoPlayer.requestFullscreen();
 }
 function backToGaley (){
     container.classList.remove("playing")
     backButton.classList.remove("active")
+    logo.classList.remove("active-animation")
 }
 backButton.addEventListener("click",()=>{
     videoPlayer.pause()
@@ -66,3 +69,4 @@ backButton.addEventListener("click",()=>{
 //         activeItem(videoItem)
 //     })
 // })
+

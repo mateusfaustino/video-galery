@@ -43,7 +43,7 @@ body{
     display: flex;
 }
 .container{
-    margin-top: calc(65px + 16px);
+    margin-top: calc(80px + 16px);
     display: grid;
     grid-template-columns: 1fr;
     gap: 15px;
