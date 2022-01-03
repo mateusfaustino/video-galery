@@ -6,6 +6,20 @@ const videoPlayer = document.getElementById("main-video-player")
 const mainVideoTitle = document.getElementById("main-video__title")
 const backButton = document.getElementById("backButton")
 const logo = document.getElementById("logo")
+
+function fixSize (){
+    const mainVideo = document.querySelector(".main-video").clientHeight
+    console.log("tamanho da div antes do play:", mainVideo);
+    videoPlayer.addEventListener('play', (event) => {
+        const _mainVideo = document.querySelector(".main-video").clientHeight
+        console.log("tamanho da div após o play:", _mainVideo);
+        document.querySelector("#video-galery").style.height = _mainVideo+"px"
+    })
+
+}
+function revertFixSize (){
+    document.querySelector("#video-galery").style.height = "auto"
+}
 function createElement(elementType,elementClass, parent, imageParams){
     const element = document.createElement(elementType); 
     element.classList.add(elementClass);
@@ -29,9 +43,10 @@ allVideos.forEach((video)=>{
     );
     const videoTitle = createElement('h3','video-list__title',videoDiv,null)
     videoTitle.innerText=`${video.title}`
-    videoDiv.addEventListener("click",()=>{
+    videoDiv.addEventListener("click", ()=>{
         playVideo(video)
         activeItem(videoDiv)
+        fixSize()
     })
 })
 // <img src="core/thubs/default.png" alt="">
@@ -46,17 +61,22 @@ function clearVideoItems(){
     })
 }
 function playVideo(video){
+
     container.classList.add("playing")
     backButton.classList.add("active")
     videoPlayer.src=`core/videos/${video.slug}.mp4`
     mainVideoTitle.innerHTML=video.title
     logo.classList.add("active-animation")
+
+    
     // videoPlayer.requestFullscreen();
+    
 }
 function backToGaley (){
     container.classList.remove("playing")
     backButton.classList.remove("active")
     logo.classList.remove("active-animation")
+    revertFixSize()
 }
 backButton.addEventListener("click",()=>{
     videoPlayer.pause()

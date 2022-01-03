@@ -4,12 +4,16 @@
     box-sizing: border-box;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     font-weight: normal;
+    
+}
+.video-list, .video-list * {
     transition: all 0.3s ease-in;
 }
 
 body{
     background: #e5e5e5;
 }
+
 .heading{
     display: flex;
     position: fixed;
@@ -23,6 +27,7 @@ body{
     padding: 10px;
     min-height: 72px;
 }
+
 #backButton{
     display: none;
     position: fixed;
@@ -39,9 +44,11 @@ body{
     border: 1px solid rgba(0, 0, 0, 0.91);
     
 }
+
 #backButton.active{    
     display: flex;
 }
+
 .container{
     margin-top: calc(80px + 16px);
     display: grid;
@@ -113,6 +120,7 @@ body{
 .container .video-list .vid.active{
     background: rgba(0, 0, 0, 0.91);
 }
+
 .container .video-list .vid.active .video-list__title{
     color: #fff;
 }
@@ -121,6 +129,7 @@ body{
     color: #333;
     font-size: 17px;
 }
+
 .container .video-list .vid img{
     width: 100%;
     border-radius: 5px 5px 0 0;
